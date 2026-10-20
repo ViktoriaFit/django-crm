@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>База клиентов</title>
+</head>
+<body>
+    <h1>База клиентов</h1>
+    <ul>
+        {% for client in clients %}
+            <li>
+                <strong>{{ client.last_name }}</strong><br>
+                Телефон: {{ client.phone }} | 
+                Занятий: {{ client.visits }} | 
+                Оплата: {{ client.payment_date }} | 
+                До: {{ client.expiry_date }} | 
+                Дни: {{ client.days_of_week }}
+            </li>
+        {% empty %}
+            <li>Клиентов пока нет.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
