@@ -8,6 +8,7 @@ class Client(models.Model):
     start_date = models.DateField("Дата первого занятия")
     expiry_date = models.DateField("Дата следующей оплаты")
     days_of_week = models.CharField("Дни недели", max_length=50, blank=True)
+    training_time = models.CharField("Время тренировки", max_length=50, blank=True)
 
     def __str__(self):
         return self.last_name

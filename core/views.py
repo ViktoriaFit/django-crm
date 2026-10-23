@@ -56,6 +56,7 @@ def client_list(request):
                     <span class="label">Оплата:</span> {client.payment_date}<br>
                     <span class="label">Действует до:</span> {client.expiry_date}<br>
                     <span class="label">Дни недели:</span> {client.days_of_week}<br>
+                    <span class="label">Время:</span> {client.training_time}<br>
                     <span class="label">Телефон:</span> {client.phone}
                 </div>
             </li>

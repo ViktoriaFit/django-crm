@@ -13,6 +13,7 @@ class ClientAdmin(admin.ModelAdmin):
         'start_date', 
         'expiry_date', 
         'days_of_week', 
+        'training_time',
         'status_colored'
     )
     search_fields = ('last_name', 'phone')
