@@ -1,7 +1,17 @@
 from django.http import HttpResponse
 from .models import Client
+from django.db import connection
 
 def client_list(request):
+    # --- ВРЕМЕННЫЙ КОСТЫЛЬ ДЛЯ RENDER ---
+    # Проверяем, есть ли колонка training_time в базе
+    with connection.cursor() as cursor:
+        cursor.execute("PRAGMA table_info(core_client);")
+        columns = [row[1] for row in cursor.fetchall()]
+        if 'training_time' not in columns:
+            cursor.execute("ALTER TABLE core_client ADD COLUMN training_time VARCHAR(50);")
+    # ------------------------------------
+
     search_query = request.GET.get('search', '')
     
     if search_query:
